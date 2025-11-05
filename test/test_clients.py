@@ -75,13 +75,13 @@ def client_simulator(client_id):
 # === Chạy nhiều client song song ===
 if __name__ == "__main__":
     threads = []
-    client_count = 4  # số client test cùng lúc
+    client_count = 4 
 
     for i in range(client_count):
         t = threading.Thread(target=client_simulator, args=(i,))
         threads.append(t)
         t.start()
-        time.sleep(0.5)  # tạo độ trễ khi kết nối
+        time.sleep(0.5)  
 
     for t in threads:
         t.join()
