@@ -1,0 +1,29 @@
+2025-11-05 22:57:54 - Server đã khởi động
+2025-11-05 22:58:19 - Khương đã tham gia từ ('127.0.0.1', 51690)
+2025-11-05 22:58:20 - Mơ đã tham gia từ ('127.0.0.1', 51691)
+2025-11-05 22:58:20 - [GHÉP CẶP] Khương vs Mơ
+2025-11-05 22:58:22 - Mơ(paper) vs Khương(rock) => P1:win, P2:lose
+2025-11-05 22:58:43 - Khương(scissors) vs Mơ(paper) => P1:win, P2:lose
+2025-11-05 22:58:48 - Mơ(paper) vs Khương(paper) => P1:draw, P2:draw
+2025-11-05 23:00:31 - Server đã khởi động
+2025-11-05 23:01:29 - Khương đã tham gia từ ('127.0.0.1', 7365)
+2025-11-05 23:01:30 - mơ đã tham gia từ ('127.0.0.1', 7366)
+2025-11-05 23:01:30 - [GHÉP CẶP] Khương vs mơ
+2025-11-05 23:01:33 - mơ(paper) vs Khương(rock) => P1:win, P2:lose
+2025-11-05 23:01:41 - Khương(paper) vs mơ(scissors) => P1:lose, P2:win
+2025-11-05 23:05:22 - Server đã khởi động
+2025-11-05 23:05:45 - khương đã tham gia từ ('127.0.0.1', 58769)
+2025-11-05 23:05:46 - mơ đã tham gia từ ('127.0.0.1', 58770)
+2025-11-05 23:05:46 - [GHÉP CẶP] khương vs mơ
+2025-11-05 23:05:48 - mơ(scissors) vs khương(paper) => P1:win, P2:lose
+2025-11-05 23:13:04 - Server đã khởi động
+2025-11-05 23:13:24 - khương đã tham gia từ ('127.0.0.1', 60931)
+2025-11-05 23:13:25 - mơ đã tham gia từ ('127.0.0.1', 60932)
+2025-11-05 23:13:25 - [GHÉP CẶP] khương vs mơ
+2025-11-05 23:13:31 - mơ(scissors) vs khương(paper) => P1:win, P2:lose
+2025-11-05 23:13:34 - mơ(rock) vs khương(rock) => P1:draw, P2:draw
+2025-11-05 23:19:54 - Server started
+2025-11-05 23:20:23 - Khương joined from ('127.0.0.1', 13257)
+2025-11-05 23:20:24 - Mơ joined from ('127.0.0.1', 13258)
+2025-11-05 23:20:24 - [MATCH] Khương vs Mơ
+2025-11-05 23:20:25 - Mơ(paper) vs Khương(rock) => P1:win, P2:lose
