@@ -116,46 +116,76 @@ class RPSClientGUI:
                 msg = self.network.recv_json()
                 if not msg:
                     continue
+                
                 msg_type = msg.get("type")
 
                 if msg_type == "match_found":
                     self.opponent = msg.get("opponent")
-                    self.master.after(0, lambda: self.opponent_label.config(
-                        text=f"⚔️ Opponent: {self.opponent}", fg="#f43f5e"))
+                    self.master.after(0, lambda opp=self.opponent: self.opponent_label.config(
+                        text=f"⚔️ Opponent: {opp}", fg="#f43f5e"))
                     self.master.after(0, lambda: self.status_label.config(
                         text="🟣 Match Started!", fg="#a855f7"))
 
                 elif msg_type == "request_move":
-                    self.master.after(0, lambda: [self.enable_game_buttons(),
-                                                  self.result_label.config(text="⏰ Make Your Move!", fg="#6366f1")])
+                    self.master.after(0, self.enable_move_request)
 
                 elif msg_type == "round_result":
-                    your_move = msg.get("your_move", "").upper()
-                    opponent_move = msg.get("opponent_move", "").upper()
+                    your_move = msg.get("your_move", "")
+                    opponent_move = msg.get("opponent_move", "")
                     result = msg.get("result", "draw")
-
-                    def update_label():
-                        self.disable_game_buttons()
-                        if result == "win":
-                            emoji, text, color = "🎉", "YOU WIN!", "#10b981"
-                        elif result == "lose":
-                            emoji, text, color = "😔", "YOU LOSE", "#ef4444"
-                        else:
-                            emoji, text, color = "🤝", "IT'S A DRAW", "#3b82f6"
-                        self.result_label.config(
-                            text=f"{emoji} {text}\n\nYou: {your_move} | Opponent: {opponent_move}",
-                            fg=color
-                        )
-
-                    self.master.after(0, update_label)
+                    
+                    # Hiển thị kết quả NGAY LẬP TỨC
+                    self.master.after(0, lambda r=result, ym=your_move, om=opponent_move: 
+                                     self.show_result(r, ym, om))
+                    
+                    # Sau 3 giây, tự động chuyển sang vòng mới
+                    self.master.after(3000, self.enable_move_request)
 
                 elif msg_type == "game_over":
                     self.master.after(0, lambda: messagebox.showinfo("Game Over", "The game has ended!"))
                     break
         except Exception as e:
             if self.network.is_connected():
-                self.master.after(0, lambda: self.status_label.config(
-                    text=f"🔴 Connection Lost: {e}", fg="#ef4444"))
+                self.master.after(0, lambda err=str(e): self.status_label.config(
+                    text=f"🔴 Connection Lost: {err}", fg="#ef4444"))
+
+    def show_result(self, result, your_move, opponent_move):
+        """Hiển thị kết quả lên giao diện"""
+        self.disable_game_buttons()
+        
+        # Xác định emoji, text và màu
+        if result == "win":
+            emoji, text, color = "🎉", "YOU WIN!", "#10b981"
+        elif result == "lose":
+            emoji, text, color = "😔", "YOU LOSE", "#ef4444"
+        else:
+            emoji, text, color = "🤝", "IT'S A DRAW", "#3b82f6"
+        
+        # Tạo text kết quả
+        result_text = f"{emoji} {text}\n\nYou: {your_move.upper()} | Opponent: {opponent_move.upper()}"
+        
+        # HIỂN THỊ POPUP ĐỂ DEBUG
+        messagebox.showinfo("Round Result", result_text)
+        
+        # CẬP NHẬT GIAO DIỆN - QUAN TRỌNG!
+        self.result_label.config(
+            text=result_text, 
+            fg=color,
+            font=("Arial", 16, "bold")  # Font to hơn để dễ thấy
+        )
+        
+        # Force update
+        self.result_label.update()
+        self.master.update()
+
+    def enable_move_request(self):
+        """Enable buttons và yêu cầu chọn nước đi mới"""
+        self.enable_game_buttons()
+        self.result_label.config(
+            text="⏰ Make Your Move!", 
+            fg="#6366f1",
+            font=("Arial", 14, "bold")
+        )
 
     def send_move(self, move):
         if not self.network.is_connected():
@@ -164,8 +194,11 @@ class RPSClientGUI:
         try:
             self.network.send_json({"type": "move", "move": move})
             move_emoji = {"rock": "🪨", "paper": "📄", "scissors": "✂️"}
-            self.result_label.config(text=f"You chose: {move_emoji[move]} {move.upper()}\nWaiting for opponent...",
-                                     fg="#64748b")
+            self.result_label.config(
+                text=f"You chose: {move_emoji[move]} {move.upper()}\n\nWaiting for opponent...",
+                fg="#64748b",
+                font=("Arial", 13)
+            )
             self.disable_game_buttons()
         except Exception as e:
             messagebox.showerror("Error", f"Failed to send move:\n{str(e)}")

@@ -1,29 +1,23 @@
-2025-11-05 22:57:54 - Server đã khởi động
-2025-11-05 22:58:19 - Khương đã tham gia từ ('127.0.0.1', 51690)
-2025-11-05 22:58:20 - Mơ đã tham gia từ ('127.0.0.1', 51691)
-2025-11-05 22:58:20 - [GHÉP CẶP] Khương vs Mơ
-2025-11-05 22:58:22 - Mơ(paper) vs Khương(rock) => P1:win, P2:lose
-2025-11-05 22:58:43 - Khương(scissors) vs Mơ(paper) => P1:win, P2:lose
-2025-11-05 22:58:48 - Mơ(paper) vs Khương(paper) => P1:draw, P2:draw
-2025-11-05 23:00:31 - Server đã khởi động
-2025-11-05 23:01:29 - Khương đã tham gia từ ('127.0.0.1', 7365)
-2025-11-05 23:01:30 - mơ đã tham gia từ ('127.0.0.1', 7366)
-2025-11-05 23:01:30 - [GHÉP CẶP] Khương vs mơ
-2025-11-05 23:01:33 - mơ(paper) vs Khương(rock) => P1:win, P2:lose
-2025-11-05 23:01:41 - Khương(paper) vs mơ(scissors) => P1:lose, P2:win
-2025-11-05 23:05:22 - Server đã khởi động
-2025-11-05 23:05:45 - khương đã tham gia từ ('127.0.0.1', 58769)
-2025-11-05 23:05:46 - mơ đã tham gia từ ('127.0.0.1', 58770)
-2025-11-05 23:05:46 - [GHÉP CẶP] khương vs mơ
-2025-11-05 23:05:48 - mơ(scissors) vs khương(paper) => P1:win, P2:lose
-2025-11-05 23:13:04 - Server đã khởi động
-2025-11-05 23:13:24 - khương đã tham gia từ ('127.0.0.1', 60931)
-2025-11-05 23:13:25 - mơ đã tham gia từ ('127.0.0.1', 60932)
-2025-11-05 23:13:25 - [GHÉP CẶP] khương vs mơ
-2025-11-05 23:13:31 - mơ(scissors) vs khương(paper) => P1:win, P2:lose
-2025-11-05 23:13:34 - mơ(rock) vs khương(rock) => P1:draw, P2:draw
-2025-11-05 23:19:54 - Server started
-2025-11-05 23:20:23 - Khương joined from ('127.0.0.1', 13257)
-2025-11-05 23:20:24 - Mơ joined from ('127.0.0.1', 13258)
-2025-11-05 23:20:24 - [MATCH] Khương vs Mơ
-2025-11-05 23:20:25 - Mơ(paper) vs Khương(rock) => P1:win, P2:lose
+2025-11-06 21:37:54 - Server started
+2025-11-06 21:38:45 - duy ngu joined from ('127.0.0.1', 1873)
+2025-11-06 21:38:46 - phong ngu joined from ('127.0.0.1', 1874)
+2025-11-06 21:38:46 - [MATCH] duy ngu vs phong ngu
+2025-11-06 21:38:48 - phong ngu(paper) vs duy ngu(paper) => P1:draw, P2:draw
+2025-11-06 21:38:55 - duy ngu(paper) vs phong ngu(scissors) => P1:lose, P2:win
+2025-11-06 21:38:59 - phong ngu(rock) vs duy ngu(rock) => P1:draw, P2:draw
+2025-11-06 21:39:03 - phong ngu(paper) vs duy ngu(paper) => P1:draw, P2:draw
+2025-11-06 21:39:07 - phong ngu(rock) vs duy ngu(scissors) => P1:win, P2:lose
+2025-11-06 21:39:11 - phong ngu(paper) vs duy ngu(scissors) => P1:lose, P2:win
+2025-11-06 21:39:16 - phong ngu(rock) vs duy ngu(paper) => P1:lose, P2:win
+2025-11-06 21:40:51 - Server started
+2025-11-06 21:41:28 - phong ngu joined from ('127.0.0.1', 1905)
+2025-11-06 21:41:29 - duy ngu joined from ('127.0.0.1', 1906)
+2025-11-06 21:41:29 - [MATCH] phong ngu vs duy ngu
+2025-11-06 21:41:30 - phong ngu(paper) vs duy ngu(paper) => P1:draw, P2:draw
+2025-11-06 21:41:35 - duy ngu(rock) vs phong ngu(scissors) => P1:win, P2:lose
+2025-11-06 21:46:48 - Server started
+2025-11-06 21:47:49 - duy nguu joined from ('127.0.0.1', 2953)
+2025-11-06 21:47:50 - phong nguu joined from ('127.0.0.1', 2954)
+2025-11-06 21:47:50 - [MATCH] duy nguu vs phong nguu
+2025-11-06 21:47:52 - duy nguu(paper) vs phong nguu(paper) => P1:draw, P2:draw
+2025-11-06 21:47:56 - phong nguu(scissors) vs duy nguu(rock) => P1:lose, P2:win
