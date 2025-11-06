@@ -108,6 +108,10 @@ def handle_move(player_sock, move):
             update_score(player_name, p_result)
             update_score(opponent_name, o_result)
 
+            # Gọi hàm lưu file
+            from leaderboard import save_leaderboard_file
+            save_leaderboard_file()
+
             # Xóa moves
             del moves[player_sock]
             del moves[opponent_sock]
