@@ -3,14 +3,13 @@ import threading
 import json
 from datetime import datetime
 
-# import trực tiếp từ game_manager và leaderboard
 from game_manager import handle_move, match_players, clients, queue, matches, moves, lock
-from leaderboard import update_score, print_leaderboard
+from leaderboard import update_score, save_leaderboard_file
 
 HOST = '127.0.0.1'
 PORT = 9009
 
-def save_log(msg: str):
+def save_log(msg):
     """Lưu log vào file"""
     try:
         with open("game_log.txt", "a", encoding="utf-8") as f:
@@ -67,10 +66,10 @@ def handle_client(client_socket, addr):
             elif msg_type == "move":
                 move = msg.get("move")
                 if move in ["rock", "paper", "scissors"]:
-                    handle_move(client_socket, move)  # gọi trực tiếp handle_move từ game_manager
+                    handle_move(client_socket, move)  # gọi trực tiếp
 
     finally:
-        # Xử lý client ngắt kết nối
+        # Khi client ngắt kết nối
         with lock:
             if client_socket in queue:
                 queue.remove(client_socket)
@@ -89,7 +88,6 @@ def handle_client(client_socket, addr):
 
 def start_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind((HOST, PORT))
     server.listen()
