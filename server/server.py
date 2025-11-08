@@ -70,19 +70,39 @@ def handle_client(client_socket, addr):
 
     finally:
         # Khi client ngắt kết nối
+        requeue_opp = None
         with lock:
             if client_socket in queue:
                 queue.remove(client_socket)
             if client_socket in matches:
                 opp = matches[client_socket]
-                send_json(opp, {"type": "game_over"})
+                # Thông báo cho đối thủ rằng đối phương đã rời
+                try:
+                    # dùng type rõ ràng để client xử lý (không dừng vòng lắng nghe)
+                    send_json(opp, {"type": "opponent_disconnected"})
+                except:
+                    pass
+
+                # Xóa mapping match 2 chiều
                 if opp in matches:
                     del matches[opp]
                 del matches[client_socket]
+
+                # Nếu đối thủ vẫn đang kết nối, đánh dấu để requeue (thực hiện ngoài lock)
+                if opp in clients and opp not in queue:
+                    queue.append(opp)
+                    requeue_opp = True
             if client_socket in moves:
                 del moves[client_socket]
             if client_socket in clients:
                 del clients[client_socket]
+
+        # Gọi match_players ngoài lock để tránh deadlock (match_players cũng lấy lock)
+        if requeue_opp:
+            try:
+                match_players()
+            except:
+                pass
         client_socket.close()
         print(f"[DISCONNECT] {player_name or addr}")
 

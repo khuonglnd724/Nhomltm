@@ -43,11 +43,47 @@ def recv_json(sock):
 
 
 def match_players():
-    """Ghép 2 người chơi"""
+    """Ghép 2 người chơi
+
+    Lựa chọn cặp: tìm 2 socket trong queue mà vẫn đang kết nối (có trong `clients`) và chưa có trong `matches`.
+    Nếu không tìm được cặp, trả lại socket chưa ghép vào queue.
+    """
     with lock:
-        while len(queue) >= 2:
-            p1 = queue.pop(0)
-            p2 = queue.pop(0)
+        # Clean up any sockets in queue that are no longer connected
+        queue[:] = [s for s in queue if s in clients]
+
+        while True:
+            # Find first available unmatched player
+            p1 = None
+            while queue:
+                cand = queue.pop(0)
+                if cand in matches:
+                    # already matched elsewhere, skip
+                    continue
+                if cand not in clients:
+                    # disconnected, skip
+                    continue
+                p1 = cand
+                break
+
+            if not p1:
+                break
+
+            # Find second available unmatched player
+            p2 = None
+            while queue:
+                cand = queue.pop(0)
+                if cand in matches or cand not in clients or cand == p1:
+                    continue
+                p2 = cand
+                break
+
+            if not p2:
+                # No partner found: put p1 back to the end of queue and stop
+                queue.append(p1)
+                break
+
+            # Found a valid pair -> create match
             matches[p1] = p2
             matches[p2] = p1
             p1_name = clients.get(p1, "Unknown")

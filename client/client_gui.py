@@ -142,8 +142,28 @@ class RPSClientGUI:
                     self.master.after(3000, self.enable_move_request)
 
                 elif msg_type == "game_over":
+                    # Thay vì dừng vòng lắng nghe, hiển thị thông báo và tự động vào lại hàng đợi
                     self.master.after(0, lambda: messagebox.showinfo("Game Over", "The game has ended!"))
-                    break
+                    # reset trạng thái đối thủ và giao diện
+                    self.opponent = None
+                    self.master.after(0, lambda: self.opponent_label.config(text="Opponent: Waiting...", fg="#94a3b8"))
+                    # Gửi yêu cầu vào lại hàng đợi để được ghép trận
+                    try:
+                        self.network.send_json({"type": "join_queue"})
+                        self.master.after(0, lambda: self.status_label.config(text="🟡 Searching for Opponent...", fg="#f59e0b"))
+                    except:
+                        pass
+
+                elif msg_type == "opponent_disconnected":
+                    # Khi server thông báo đối thủ rời — hành xử giống như trên
+                    self.master.after(0, lambda: messagebox.showinfo("Opponent Left", "Your opponent disconnected. Rejoining queue..."))
+                    self.opponent = None
+                    self.master.after(0, lambda: self.opponent_label.config(text="Opponent: Waiting...", fg="#94a3b8"))
+                    try:
+                        self.network.send_json({"type": "join_queue"})
+                        self.master.after(0, lambda: self.status_label.config(text="🟡 Searching for Opponent...", fg="#f59e0b"))
+                    except:
+                        pass
         except Exception as e:
             if self.network.is_connected():
                 self.master.after(0, lambda err=str(e): self.status_label.config(

@@ -10,5 +10,23 @@
         "lose": 1,
         "draw": 1,
         "score": 1
+    },
+    "B": {
+        "win": 3,
+        "lose": 1,
+        "draw": 4,
+        "score": 13
+    },
+    "A": {
+        "win": 1,
+        "lose": 1,
+        "draw": 3,
+        "score": 6
+    },
+    "C": {
+        "win": 0,
+        "lose": 2,
+        "draw": 3,
+        "score": 3
     }
 }

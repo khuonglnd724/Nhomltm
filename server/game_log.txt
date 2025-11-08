@@ -1,0 +1,32 @@
+2025-11-08 21:35:53 - Server started
+2025-11-08 21:36:12 - A joined from ('127.0.0.1', 17489)
+2025-11-08 21:36:14 - B joined from ('127.0.0.1', 17490)
+2025-11-08 21:36:14 - [MATCH] A vs B
+2025-11-08 21:36:17 - C joined from ('127.0.0.1', 17493)
+2025-11-08 21:36:20 - B(scissors) vs A(paper) => P1:win, P2:lose
+2025-11-08 21:36:25 - [MATCH] C vs B
+2025-11-08 21:36:30 - C(paper) vs B(scissors) => P1:lose, P2:win
+2025-11-08 21:36:48 - A joined from ('127.0.0.1', 17499)
+2025-11-08 21:36:48 - [MATCH] B vs A
+2025-11-08 21:37:33 - A joined from ('127.0.0.1', 17500)
+2025-11-08 21:37:34 - B joined from ('127.0.0.1', 17501)
+2025-11-08 21:37:34 - [MATCH] A vs B
+2025-11-08 21:37:36 - C joined from ('127.0.0.1', 17502)
+2025-11-08 21:37:38 - B(paper) vs A(paper) => P1:draw, P2:draw
+2025-11-08 21:37:43 - [MATCH] C vs B
+2025-11-08 21:37:50 - C(paper) vs B(scissors) => P1:lose, P2:win
+2025-11-08 21:38:06 - A joined from ('127.0.0.1', 17503)
+2025-11-08 21:38:06 - [MATCH] B vs A
+2025-11-08 21:38:10 - B(paper) vs A(scissors) => P1:lose, P2:win
+2025-11-08 21:41:57 - Server started
+2025-11-08 21:42:20 - A joined from ('127.0.0.1', 17542)
+2025-11-08 21:42:22 - B joined from ('127.0.0.1', 17543)
+2025-11-08 21:42:22 - [MATCH] A vs B
+2025-11-08 21:42:24 - C joined from ('127.0.0.1', 17544)
+2025-11-08 21:42:26 - B(paper) vs A(paper) => P1:draw, P2:draw
+2025-11-08 21:42:29 - [MATCH] C vs B
+2025-11-08 21:42:32 - C(paper) vs B(paper) => P1:draw, P2:draw
+2025-11-08 21:42:50 - A joined from ('127.0.0.1', 17550)
+2025-11-08 21:42:54 - C(paper) vs B(paper) => P1:draw, P2:draw
+2025-11-08 21:42:56 - [MATCH] A vs C
+2025-11-08 21:42:59 - C(scissors) vs A(scissors) => P1:draw, P2:draw
